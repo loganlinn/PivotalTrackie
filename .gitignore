@@ -1,0 +1,10 @@
+# Eclipse meta-information
+/.project
+/.classpath
+/.settings
+
+# Local Properties
+local.properties
+
+# SVN
+.svn
