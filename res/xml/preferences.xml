@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<PreferenceScreen android:title="Pivotaltracker API key"
+		android:summary="Fetch key with Username/Password">
+
+		<intent android:action="" />
+	</PreferenceScreen>
+
+	<PreferenceCategory android:title="Refresh Intervals" />
+
+
+</PreferenceScreen>
+        

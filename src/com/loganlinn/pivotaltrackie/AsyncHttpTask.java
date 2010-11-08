@@ -31,5 +31,4 @@ public class AsyncHttpTask extends AsyncTask<HttpRequestInfo, Integer, HttpReque
 		rinfo.requestFinished();
 	}
 	
-	
 }
