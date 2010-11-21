@@ -2,4 +2,5 @@
 <resources>
     <string name="hello">Hello World, AuthenticateActivity!</string>
     <string name="app_name">PivotalTrackie</string>
+<string name="toast_sync_error">An error occured in sync</string>
 </resources>
