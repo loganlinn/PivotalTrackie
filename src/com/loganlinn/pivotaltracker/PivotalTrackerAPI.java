@@ -3,7 +3,13 @@ package com.loganlinn.pivotaltracker;
 import android.app.Activity;
 
 public interface PivotalTrackerAPI {
-	void authenticate(Activity activity, AuthenticateListener authenticateListener);
+	public static final String BASE_ADDRESS = "http://www.pivotaltracker.com";
+	public static final String BASE_HTTPS_ADDRESS = "https://www.pivotaltracker.com";
+	public static final String TOKEN_PATH = "/services/v3/tokens/active";
+	
+	
+	void fetchToken(String username, String password, AuthenticateListener authenticateListener);
+	String getToken();
 	void getProject(int id);  
 	void getProjects(); 
 	void getActivityFeed();

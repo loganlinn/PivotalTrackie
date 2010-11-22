@@ -9,4 +9,5 @@
     android:layout_height="wrap_content" 
     android:text="@string/hello"
     />
+<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/refresh_project" android:text="Refresh Project"></Button>
 </LinearLayout>

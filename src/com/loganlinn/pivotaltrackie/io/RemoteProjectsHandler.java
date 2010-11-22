@@ -1,8 +1,8 @@
 package com.loganlinn.pivotaltrackie.io;
 
 import static org.xmlpull.v1.XmlPullParser.END_DOCUMENT;
-import static org.xmlpull.v1.XmlPullParser.START_TAG;
 import static org.xmlpull.v1.XmlPullParser.END_TAG;
+import static org.xmlpull.v1.XmlPullParser.START_TAG;
 import static org.xmlpull.v1.XmlPullParser.TEXT;
 
 import java.io.IOException;
@@ -13,8 +13,8 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import android.content.ContentProviderOperation;
 import android.content.ContentResolver;
+import android.util.Log;
 
-import com.loganlinn.pivotaltracker.ProjectEntry.ProjectTags;
 import com.loganlinn.pivotaltracker.util.Lists;
 import com.loganlinn.pivotaltrackie.provider.ProjectContract;
 import com.loganlinn.pivotaltrackie.provider.ProjectContract.Projects;
@@ -22,11 +22,11 @@ import com.loganlinn.pivotaltrackie.provider.ProjectContract.Projects;
 public class RemoteProjectsHandler extends XmlHandler {
 	private static final String TAG = "RemoteProjectsHandler";
 
-	private RemoteExecutor executor_;
+	private RemoteExecutor mExecutor;
 
 	public RemoteProjectsHandler(RemoteExecutor executor) {
 		super(ProjectContract.CONTENT_AUTHORITY);
-		executor_ = executor;
+		mExecutor = executor;
 	}
 
 	@Override
@@ -43,19 +43,21 @@ public class RemoteProjectsHandler extends XmlHandler {
 				parseProject(parser, batch, resolver);
 			}
 		}
-
-		return null;
+		//TODO: return full batch
+		batch.clear();
+		return batch;
 	}
 
 	public void parseMembers(XmlPullParser parser,
 			ArrayList<ContentProviderOperation> batch, ContentResolver resolver)
 			throws XmlPullParserException, IOException {
-
+		Log.i(TAG, "Parsing members");
 	}
 
 	public void parseProject(XmlPullParser parser,
 			ArrayList<ContentProviderOperation> batch, ContentResolver resolver)
 			throws XmlPullParserException, IOException {
+		Log.i(TAG, "Parsing project");
 		final int depth = parser.getDepth();
 		ContentProviderOperation.Builder builder = ContentProviderOperation
 				.newInsert(Projects.CONTENT_URI);
@@ -70,8 +72,13 @@ public class RemoteProjectsHandler extends XmlHandler {
 			} else if (type == END_TAG) {
 				tag = null;
 			} else if (type == TEXT) {
+				Log.i(TAG, "tag="+tag);
 				if (ProjectTags.ID.equals(tag)) {
 					
+				} else if (ProjectTags.NAME.equals(tag)){
+					
+				} else if (ProjectTags.MEMBERSHIPS.equals(tag)){
+					parseMembers(parser, batch, resolver);
 				}
 			}
 		}

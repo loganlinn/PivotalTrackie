@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.loganlinn.pivotaltracker.util.DetachableResultReceiver;
@@ -18,28 +20,44 @@ public class HomeActivity extends Activity implements AsyncQueryListener,
 		DetachableResultReceiver.Receiver {
 	private static final String TAG = "HomeActivity";
 
-	private HomeState state_;
-	private Handler messageHandler_ = new Handler();
-	private NotifyingAsyncQueryHandler queryHandler_;
-
+	private HomeState mState;
+	private Handler mMessageHandler = new Handler();
+	private NotifyingAsyncQueryHandler mQueryHandler;
+	
+	private Button mRefreshButton;
+	
+	private void showLoginIfNoTokenExists(){
+		
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-
-		state_ = (HomeState) getLastNonConfigurationInstance();
-		final boolean previousState = (state_ != null);
+		
+		showLoginIfNoTokenExists();
+		
+		mState = (HomeState) getLastNonConfigurationInstance();
+		final boolean previousState = (mState != null);
 
 		if (previousState) {
 
 		} else {
-			state_ = new HomeState();
-			state_.receiver_.setReceiver(this);
+			mState = new HomeState();
+			mState.receiver_.setReceiver(this);
 			onRefreshClick(null);
 		}
 		
 		// Set up handler for now project list query
-        queryHandler_ = new NotifyingAsyncQueryHandler(getContentResolver(), this);
+        mQueryHandler = new NotifyingAsyncQueryHandler(getContentResolver(), this);
+        
+        mRefreshButton = (Button)findViewById(R.id.refresh_project);
+        mRefreshButton.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				onRefreshClick(v);
+			}
+        });
 	}
 	
 	public void onProjectClick(View v){
@@ -68,26 +86,26 @@ public class HomeActivity extends Activity implements AsyncQueryListener,
 	public Object onRetainNonConfigurationInstance() {
 		// Clear any strong references to this Activity, we'll reattach to
 		// handle events on the other side.
-		state_.receiver_.clearReceiver();
-		return state_;
+		mState.receiver_.clearReceiver();
+		return mState;
 	}
 
 	@Override
 	public void onReceiveResult(int resultCode, Bundle resultData) {
 		switch (resultCode) {
 		case SyncService.STATUS_RUNNING: {
-			state_.syncing_ = true;
+			mState.syncing_ = true;
 			updateRefreshStatus();
 			break;
 		}
 		case SyncService.STATUS_FINISHED: {
-			state_.syncing_ = false;
+			mState.syncing_ = false;
 			updateRefreshStatus();
 			// TODO: reload with results
 			break;
 		}
 		case SyncService.STATUS_ERROR: {
-			state_.syncing_ = false;
+			mState.syncing_ = false;
 			updateRefreshStatus();
 			final String errorText = getString(R.string.toast_sync_error,
 					resultData.getStringArray(Intent.EXTRA_TEXT));
@@ -102,7 +120,7 @@ public class HomeActivity extends Activity implements AsyncQueryListener,
 		// trigger off background sync
 		final Intent intent = new Intent(Intent.ACTION_SYNC, null, this,
 				SyncService.class);
-		intent.putExtra(SyncService.EXTRA_STATUS_RECEIVER, state_.receiver_);
+		intent.putExtra(SyncService.EXTRA_STATUS_RECEIVER, mState.receiver_);
 		startService(intent);
 
 		// reloadNowPlaying(true);

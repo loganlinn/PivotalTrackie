@@ -49,7 +49,6 @@ public class ProjectContract {
 		String NAME = "name";
 		String INITIALS = "intiials";
 		String ROLE = "role";
-		
 	}
 	
 	public static final String CONTENT_AUTHORITY = "com.loganlinn.pivotaltrackie";
