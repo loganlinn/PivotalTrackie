@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/ListItem">
+	<TextView android:id="@+id/tv_story_name"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:textSize="@dimen/text_size_medium" android:paddingRight="15dip"/>
+
+
+	<TextView android:id="@+id/tv_label_story_estimate"
+		android:textSize="@dimen/text_size_small" android:layout_height="wrap_content"
+		android:layout_width="wrap_content" android:layout_alignParentTop="true"
+		android:layout_alignParentRight="true" style="@style/Label" />
+	<TextView android:id="@+id/tv_story_estimate"
+		android:textSize="@dimen/text_size_small" android:layout_height="wrap_content"
+		android:layout_width="wrap_content" android:layout_alignParentTop="true"
+		android:layout_toLeftOf="@id/tv_label_story_estimate"
+		android:layout_marginRight="5dip" style="@style/AltText"/>
+
+	<ImageView android:layout_alignParentBottom="true" android:layout_alignParentRight="true"
+		android:layout_below="@+id/tv_story_estimate" android:layout_height="wrap_content"
+		android:layout_width="wrap_content" android:id="@+id/iv_story_type"></ImageView>
+</RelativeLayout>

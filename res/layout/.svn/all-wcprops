@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/2028/trunk/assignments/logan_linn/final/PivotalTrackie/res/layout
+END
+activity_edit_story.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/2588/trunk/assignments/logan_linn/final/PivotalTrackie/res/layout/activity_edit_story.xml
+END
+activity_project.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/2389/trunk/assignments/logan_linn/final/PivotalTrackie/res/layout/activity_project.xml
+END
+activity_login.xml
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/2185/trunk/assignments/logan_linn/final/PivotalTrackie/res/layout/activity_login.xml
+END
+activity_home.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/2185/trunk/assignments/logan_linn/final/PivotalTrackie/res/layout/activity_home.xml
+END
+activity_view_story.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/2588/trunk/assignments/logan_linn/final/PivotalTrackie/res/layout/activity_view_story.xml
+END
+list_item_story.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/2588/trunk/assignments/logan_linn/final/PivotalTrackie/res/layout/list_item_story.xml
+END
+list_item_project.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/2626/trunk/assignments/logan_linn/final/PivotalTrackie/res/layout/list_item_project.xml
+END

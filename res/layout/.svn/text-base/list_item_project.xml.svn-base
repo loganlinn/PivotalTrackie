@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/ListItem">
+	<TextView android:id="@+id/tv_project_name"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:textSize="@dimen/text_size_large" />
+	<TextView android:id="@+id/tv_project_last_activity"
+		android:textSize="@dimen/text_size_small" android:layout_height="wrap_content"
+		android:layout_width="wrap_content" android:layout_below="@id/tv_project_name"
+		android:layout_alignParentLeft="true" style="@style/AltText"/>
+	
+	<TextView android:id="@+id/tv_project_velocity"
+		android:textSize="@dimen/text_size_large"
+		android:layout_height="wrap_content" android:layout_width="wrap_content"
+		android:layout_alignParentRight="true" 
+		android:layout_marginTop="3dip"
+		android:paddingRight="15dip"/>
+	<TextView android:id="@+id/tv_velocity_label"
+		android:layout_below="@id/tv_project_velocity"
+		android:textSize="@dimen/text_size_tiny" android:text="@string/velocity"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_alignParentRight="true" style="@style/AltText"/>
+	
+
+</RelativeLayout>

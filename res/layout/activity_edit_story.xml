@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<LinearLayout style="@style/TitleBar">
+		<TextView style="@style/TitleBarText" android:id="@+id/tv_title_bar_title"
+			android:text="@string/activity_view_title"></TextView>
+
+		<ImageView style="@style/TitleBarSeparator" android:id="@+id/iv_delete_sep" />
+		<ImageButton style="@style/TitleBarAction" android:id="@+id/ic_title_delete"
+			android:contentDescription="" android:src="@drawable/ic_title_delete"
+			android:onClick="onDeleteClick" />
+
+		<ImageView style="@style/TitleBarSeparator" android:id="@+id/iv_clear_sep"
+			android:visibility="gone" />
+		<ImageButton style="@style/TitleBarAction" android:id="@+id/ic_title_cancel"
+			android:contentDescription="" android:src="@drawable/ic_title_cancel"
+			android:onClick="onCancelClick" android:visibility="gone" />
+
+		<ImageView style="@style/TitleBarSeparator" />
+		<ImageButton style="@style/TitleBarAction"
+			android:contentDescription="" android:src="@drawable/ic_title_save"
+			android:onClick="onSaveClick" />
+	</LinearLayout>
+	<ScrollView android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+		<LinearLayout android:orientation="vertical"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:padding="10dip">
+			<LinearLayout android:orientation="vertical"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+				<EditText style="@style/StoryField" android:id="@+id/et_story_name"
+					android:textSize="18sp" android:textStyle="bold"
+					android:layout_width="fill_parent"></EditText>
+			</LinearLayout>
+			<LinearLayout android:orientation="horizontal"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+				<TextView android:id="@+id/tv_label_story_type" style="@style/StoryLabel"
+					android:text="Type" android:layout_height="wrap_content"
+					android:padding="3dip"></TextView>
+				<Spinner android:id="@+id/sp_story_type" style="@style/StoryField"></Spinner>
+			</LinearLayout>
+			<LinearLayout android:orientation="horizontal"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+				<TextView android:id="@+id/tv_label_estimate" android:text="Estimate"
+					style="@style/StoryLabel" android:padding="3dip"></TextView>
+				<Spinner android:id="@+id/sp_estimate" style="@style/StoryField"></Spinner>
+			</LinearLayout>
+			<LinearLayout android:orientation="horizontal"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+				<TextView android:id="@+id/tv_label_labels" android:text="Labels"
+					style="@style/StoryLabel" android:padding="3dip"></TextView>
+				<EditText android:id="@+id/et_labels" style="@style/StoryField"></EditText>
+			</LinearLayout>
+			<LinearLayout android:orientation="horizontal"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+				<TextView android:id="@+id/tv_label_owned_by" android:text="Owned by"
+					style="@style/StoryLabel" android:padding="3dip"></TextView>
+				<Spinner android:id="@+id/sp_owned_by" style="@style/StoryField"></Spinner>
+			</LinearLayout>
+			<LinearLayout android:orientation="horizontal"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+				<TextView android:id="@+id/tv_label_requested_by" style="@style/StoryLabel"
+					android:text="Requested by" android:layout_column="0"
+					android:padding="3dip"></TextView>
+				<Spinner android:id="@+id/sp_requested_by" style="@style/StoryField"></Spinner>
+			</LinearLayout>
+			<LinearLayout android:orientation="vertical"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+				<TextView android:id="@+id/tv_label_description" style="@style/StoryLabel"
+					android:text="Description" android:layout_column="0"
+					android:padding="3dip"></TextView>
+				<EditText android:id="@+id/et_description"
+					android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="2">
+				</EditText>
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

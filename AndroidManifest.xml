@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.loganlinn.pivotaltrackie"
-      android:versionCode="1"
-      android:versionName="1.0">
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
-        <activity android:name=".HomeActivity"
-                  android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+	package="com.loganlinn.pivotaltrackie" android:versionCode="1"
+	android:versionName="1.0">
+	
+	<application android:icon="@drawable/icon" android:label="@string/app_name"
+		android:theme="@android:style/Theme.Light.NoTitleBar">
+		<activity android:name=".ui.HomeActivity" android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
 
-    </application>
+			</intent-filter>
 
+		</activity>
 
+		<activity android:name=".ui.LoginActivity"></activity>
+
+		<activity android:name=".ui.ProjectActivity"></activity>
+
+		<activity android:name=".ui.ViewStoryActivity"></activity>
+		
+		<activity android:name=".ui.EditStoryActivity"></activity>
+		
+		<service android:enabled="true" android:name=".service.SyncService">
+
+		</service>
+		<provider android:name=".provider.ProjectProvider"
+			android:authorities="com.loganlinn.pivotaltrackie" />
+	</application>
+
+	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
 </manifest> 
