@@ -41,12 +41,7 @@ public class PivotalTracker extends HttpUtils {
 	private static Context sContext;
 	private static PivotalTracker sInstance = null;
 	//
-	private static String sToken = "408384a051c11410ce069a01c1cc665f";// REPLACE
-	// WITH
-	// YOUR
-	// TOKEN
-	// FOR
-	// TESTING
+	private static String sToken = "PLACE TOKEN HERE";
 	private static SimpleDateFormat sDateFormat = new SimpleDateFormat(
 			"yyyy/MM/dd kk:mm:ss zzz"); // ex 2010/12/03 14:41:52 UTC
 	private ContentResolver mContentResolver;
